@@ -205,8 +205,7 @@ begin
       if (j > 0) then
       begin
         firstpart := Copy(filename, 1, j - 1);
-        secondpart := Copy(filename, j + Length(delim), Length(filename) - j -
-          Length(delim) + 1);
+        secondpart := Copy(filename, j + Length(delim), Length(filename) - j - Length(delim) + 1);
         filedir := IncludeTrailingBackslash(lvFiles.Items[i].SubItems[0]);
         newfiledir := IncludeTrailingBackslash(rootFolder + firstpart);
         if (filedir <> newfiledir) then

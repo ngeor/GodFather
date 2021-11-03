@@ -76,8 +76,7 @@ begin
     SetLength(Result, Length(Filenames));
     for i := 0 to Length(Filenames) - 1 do
     begin
-      Result[i] := Copy(Filenames[i], prefixLength +
-        1, Length(Filenames[i]) - prefixLength);
+      Result[i] := Copy(Filenames[i], prefixLength + 1, Length(Filenames[i]) - prefixLength);
     end;
   end;
 end;
