@@ -8,13 +8,13 @@ uses
   Classes, SysUtils;
 
 type
-  StringArray = array of string;
+  StringArray = array of String;
 
 function RemoveCommonPrefix(Filenames: StringArray): StringArray;
 
 implementation
 
-function Min(x, y: integer): integer;
+function Min(x, y: Integer): Integer;
 begin
   if x > y then
     Result := y
@@ -22,10 +22,10 @@ begin
     Result := x;
 end;
 
-function MinLength(Filenames: StringArray): integer;
+function MinLength(Filenames: StringArray): Integer;
 var
-  i: integer;
-  m: integer;
+  i: Integer;
+  m: Integer;
 begin
   m := Length(Filenames[0]);
   for i := 1 to Length(Filenames) - 1 do
@@ -37,9 +37,9 @@ begin
   Result := m - 1;
 end;
 
-function AreEqualAtCharacterIndex(Filenames: StringArray; Index: integer): boolean;
+function AreEqualAtCharacterIndex(Filenames: StringArray; Index: Integer): Boolean;
 var
-  i: integer;
+  i: Integer;
 begin
   i := 1;
   while (i < Length(Filenames)) and (Filenames[0][Index] = Filenames[i][Index]) do
@@ -48,10 +48,10 @@ begin
   Result := i >= Length(Filenames);
 end;
 
-function CommonPrefixLength(Filenames: StringArray): integer;
+function CommonPrefixLength(Filenames: StringArray): Integer;
 var
-  i: integer;
-  min: integer;
+  i: Integer;
+  min: Integer;
 begin
   min := MinLength(Filenames);
   i := 1;
@@ -63,8 +63,8 @@ end;
 
 function RemoveCommonPrefix(Filenames: StringArray): StringArray;
 var
-  i: integer;
-  prefixLength: integer;
+  i: Integer;
+  prefixLength: Integer;
 begin
   prefixLength := CommonPrefixLength(Filenames);
   if prefixLength <= 0 then
