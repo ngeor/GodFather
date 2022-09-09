@@ -32,7 +32,7 @@ type
     procedure btnClearAllClick(Sender: TObject);
     procedure btnOrganizeClick(Sender: TObject);
   private
-    procedure DoAddFile(const FileName: string);
+    procedure DoAddFile(const FileName: String);
   public
     { Public declarations }
   end;
@@ -46,7 +46,7 @@ implementation
 
 uses RemoveCommonPrefix;
 
-procedure TForm1.DoAddFile(const FileName: string);
+procedure TForm1.DoAddFile(const FileName: String);
 begin
   with lvFiles.Items.Add do
   begin
@@ -57,7 +57,7 @@ end;
 
 procedure TForm1.btnAddFilesClick(Sender: TObject);
 var
-  i: integer;
+  i: Integer;
 begin
   with OpenDialog1 do
     if Execute then
@@ -86,7 +86,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
 end;
 
-function AnsiDummy(const s: string): string;
+function AnsiDummy(const s: String): String;
 begin
   Result := s;
 end;
@@ -94,9 +94,9 @@ end;
 {
   Capitalize first letter of each word
 }
-function AnsiNormalizeCase(const s: string): string;
+function AnsiNormalizeCase(const s: String): String;
 var
-  i, L: integer;
+  i, L: Integer;
 begin
   i := 1;
   L := Length(s);
@@ -119,15 +119,15 @@ begin
 end;
 
 type
-  fnStringHandler = function(const s: string): string;
+  fnStringHandler = function(const s: String): String;
 
 {
   simple ops: rename files
 }
 procedure TForm1.btnOK_SOClick(Sender: TObject);
 var
-  i: integer;
-  s, s2: string;
+  i: Integer;
+  s, s2: String;
   fnTitle, fnExt: fnStringHandler;
 
   procedure RdgToFn(rdg: TRadioGroup; var fn: fnStringHandler);
@@ -159,8 +159,8 @@ end;
 }
 procedure TForm1.btnRemoveCommonLeadingPartClick(Sender: TObject);
 var
-  i: integer;
-  path: string;
+  i: Integer;
+  path: String;
   Filenames, RenamedFilenames: StringArray;
 begin
   if lvFiles.Items.Count <= 1 then
@@ -187,13 +187,13 @@ end;
 }
 procedure TForm1.btnOrganizeClick(Sender: TObject);
 const
-  delim: string = ' - ';
+  delim: String = ' - ';
 var
-  i, j: integer;
-  rootFolder: string;
-  filename, filedir: string;
-  firstpart, secondpart: string;
-  newfiledir: string;
+  i, j: Integer;
+  rootFolder: String;
+  filename, filedir: String;
+  firstpart, secondpart: String;
+  newfiledir: String;
 begin
   if SelectDirectory('Select a directory', '', rootFolder) then
   begin
